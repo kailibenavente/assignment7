@@ -1,6 +1,10 @@
 public class RLECompressor {
 
+    private RLECompressor() {}
+
     public static String compress(String input) {
+        if (input == null || input.isEmpty()) return "";
+
         StringBuilder sb = new StringBuilder();
         int count = 1;
         for (int i = 1; i <= input.length(); i++) {
@@ -15,6 +19,8 @@ public class RLECompressor {
     }
 
     public static String decompress(String input) {
+        if (input == null || input.isEmpty()) return "";
+
         StringBuilder sb = new StringBuilder();
         int i = 0;
         while (i < input.length()) {

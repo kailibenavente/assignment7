@@ -13,4 +13,20 @@ public class Message {
         this.body = body;
         this.metadata = new HashMap<>();
     }
+
+        public void setMetadata(String key, String value) {
+        metadata.put(key, value);
+    }
+
+        public String getMetadata(String key) {
+        return metadata.get(key);
+    }
+
+    public String toString() {
+        return "From: " + senderId + "\n"
+             + "To: " + receiverId + "\n"
+             + "Metadata: " + metadata + "\n"
+             + "Body: " + body;
+    }
+
 }
