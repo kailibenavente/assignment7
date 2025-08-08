@@ -1,6 +1,7 @@
 import javax.crypto.Cipher;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import java.util.*;
 
 public class RSAEncryptor {
     public static Message encrypt(Person sender, Person receiver, String message, SocialGraph graph) throws Exception {
@@ -12,7 +13,7 @@ public class RSAEncryptor {
         Message msg = new Message(sender.getId(), receiver.getId(), encoded);
         msg.setMetadata("compression", "rsa");
 
-        List<Person> path = graph.findPath(sender, receiver);
+        List<Person> path = GraphRouter.findPath(sender, receiver, graph);
         if (path != null) {
             for (Person p : path.subList(1, path.size())) {
                 p.getInbox().add(msg);
