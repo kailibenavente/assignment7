@@ -20,7 +20,7 @@ public class GraphRouter {
                 return path;
             }
 
-            for (Person neighbor : graph.adjacencyList.get(current)) {
+            for (Person neighbor : graph.getAdjacencyList().get(current)) {
                 if (!visited.contains(neighbor)) {
                     visited.add(neighbor);
                     parent.put(neighbor, current);
@@ -31,4 +31,3 @@ public class GraphRouter {
         return null;
     }
 }
-```

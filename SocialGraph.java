@@ -18,4 +18,7 @@ public class SocialGraph {
         adjacencyList.get(a).add(b);
         adjacencyList.get(b).add(a); 
     }
+    public Map<Person, List<Person>> getAdjacencyList() {
+        return adjacencyList;
+    }    
 }
